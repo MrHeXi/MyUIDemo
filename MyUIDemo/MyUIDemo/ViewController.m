@@ -21,22 +21,38 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    BaseViewController *view1 = [[BaseViewController alloc]init];
-    [view1 addImageView:@"girl.jpg"];
+    
+    BaseViewController *homeView = [[BaseViewController alloc]init];
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:[UIImage imageNamed:IMG_Tam_Tab1] selectedImage:[UIImage imageNamed:IMG_Tam_Tab1_P]];
-    view1.tabBarItem.selectedImage = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    view1.tabBarItem.image = [self.tabBarItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    view1.tabBarItem.title = @"首页";
+    homeView.tabBarItem.selectedImage = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    homeView.tabBarItem.image = [self.tabBarItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    homeView.tabBarItem.title = @"首页";
     
-    BaseViewController *view2 = [[BaseViewController alloc]init];
-    [view2 addWebView:@"https://www.baidu.com"];
+    BaseViewController *msgView = [[BaseViewController alloc]init];
+    [msgView addImageView:@"girl.jpg"];
     self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:[UIImage imageNamed:IMG_Tam_Tab2] selectedImage:[UIImage imageNamed:IMG_Tam_Tab2_P]];
-    view2.tabBarItem.selectedImage = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    view2.tabBarItem.image = [self.tabBarItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    view2.tabBarItem.title = @"首页2";
+    msgView.tabBarItem.selectedImage = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    msgView.tabBarItem.image = [self.tabBarItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    msgView.tabBarItem.title = @"消息";
     
-    self.viewControllers = @[[[UINavigationController alloc] initWithRootViewController:view1],
-                             [[UINavigationController alloc] initWithRootViewController:view2]];
+    BaseViewController *activityView = [[BaseViewController alloc]init];
+    [activityView addWebView:@"https://www.baidu.com"];
+    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:[UIImage imageNamed:IMG_Tam_Tab3] selectedImage:[UIImage imageNamed:IMG_Tam_Tab3_P]];
+    activityView.tabBarItem.selectedImage = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    activityView.tabBarItem.image = [self.tabBarItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    activityView.tabBarItem.title = @"web";
+    
+    BaseViewController *myInfoView = [[BaseViewController alloc]init];
+    [myInfoView addWebView:@"https://www.baidu.com"];
+    self.tabBarItem = [[UITabBarItem alloc] initWithTitle:self.title image:[UIImage imageNamed:IMG_Tam_Tab4] selectedImage:[UIImage imageNamed:IMG_Tam_Tab4_P]];
+    myInfoView.tabBarItem.selectedImage = [self.tabBarItem.selectedImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    myInfoView.tabBarItem.image = [self.tabBarItem.image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    myInfoView.tabBarItem.title = @"web";
+    
+    self.viewControllers = @[[[UINavigationController alloc] initWithRootViewController:homeView],
+                             [[UINavigationController alloc] initWithRootViewController:msgView],
+                             [[UINavigationController alloc] initWithRootViewController:activityView],
+                             [[UINavigationController alloc] initWithRootViewController:myInfoView]];
     UIColor *titleHighlightedColor = Tam_UITabBarItemTitleHighlightedColor;
     [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:
                                                        titleHighlightedColor, UITextAttributeTextColor,
